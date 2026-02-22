@@ -84,6 +84,52 @@
         });
     }
 
+    // Contact form AJAX submission
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var btn = document.getElementById('contactSubmit');
+            var status = document.getElementById('contactStatus');
+            var formData = new FormData(contactForm);
+
+            // Disable button and show sending state
+            btn.disabled = true;
+            btn.classList.add('sending');
+            status.className = 'contact-status';
+            status.textContent = '';
+
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+            .then(function (result) {
+                if (result.ok && result.data.success) {
+                    status.className = 'contact-status success';
+                    status.textContent = result.data.message;
+                    contactForm.reset();
+                    // Track as Facebook Lead event
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead', { content_name: 'Contact Form', content_category: 'Form Submission' });
+                    }
+                } else {
+                    status.className = 'contact-status error';
+                    status.textContent = result.data.message || 'Something went wrong. Please call (479) 207-2454.';
+                }
+            })
+            .catch(function () {
+                status.className = 'contact-status error';
+                status.textContent = 'Network error. Please call us at (479) 207-2454.';
+            })
+            .finally(function () {
+                btn.disabled = false;
+                btn.classList.remove('sending');
+            });
+        });
+    }
+
     // Facebook Pixel - Track CTA clicks as Lead events
     document.querySelectorAll('a[href^="tel:"], a[href="#contact"]').forEach(function (link) {
         link.addEventListener('click', function () {

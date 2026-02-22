@@ -1,0 +1,11 @@
+# Protect config file from direct access
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Protect .env file
+<Files ".env">
+    Order Allow,Deny
+    Deny from all
+</Files>

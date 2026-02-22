@@ -15,9 +15,10 @@ Thumbs.db
 *.swp
 *.swo
 
-# Environment
+# Environment & secrets
 .env
 .env.local
+config.php
 
 # Logs
 *.log
