@@ -1,0 +1,543 @@
+/* ============================================
+   PROFESSIONALS PAGE STYLES
+   ============================================ */
+
+.active-link {
+    color: var(--copper) !important;
+}
+
+/* --- What Is Section --- */
+.what-is {
+    padding: 72px 0;
+    background: var(--warm-white);
+}
+
+.explainer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.explainer-card {
+    background: #fff;
+    padding: 36px 28px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(44,36,32,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.explainer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.explainer-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--copper);
+}
+
+.explainer-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+
+.explainer-subtitle {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--copper);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.explainer-card p {
+    color: var(--warm-gray);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+.explainer-list {
+    list-style: none;
+    padding: 0;
+}
+
+.explainer-list li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--charcoal);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+.explainer-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--copper);
+    opacity: 0.4;
+}
+
+/* --- Services & Pricing (Stacked Two-Column Layout) --- */
+.services-pro {
+    padding: 72px 0;
+    background: var(--cream);
+}
+
+.service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 44px 40px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(44,36,32,0.06);
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+
+.service-row:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.service-row:last-of-type {
+    margin-bottom: 32px;
+}
+
+.service-row-featured {
+    border: 2px solid var(--copper);
+    box-shadow: var(--shadow-md);
+}
+
+.service-row-badge {
+    position: absolute;
+    top: -13px;
+    left: 40px;
+    background: var(--copper);
+    color: #fff;
+    padding: 5px 18px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Left column: description */
+.service-row-desc {
+    padding-right: 8px;
+}
+
+.service-row-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: var(--copper);
+}
+
+.service-row-desc h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--navy);
+    font-weight: 400;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.service-row-subtitle {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--copper);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.service-row-desc p {
+    color: var(--warm-gray);
+    font-size: 0.94rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.service-row-tagline {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--charcoal) !important;
+}
+
+/* Right column: pricing card */
+.service-row-pricing {
+    background: var(--warm-white);
+    border-radius: var(--radius-md);
+    padding: 28px 28px 24px;
+    border: 1px solid rgba(44,36,32,0.06);
+}
+
+.service-row-price-header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(44,36,32,0.08);
+}
+
+.service-row-amount {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: var(--navy);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.service-row-per {
+    font-size: 0.88rem;
+    color: var(--warm-gray-light);
+    font-weight: 600;
+}
+
+.service-row-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.service-row-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    line-height: 1.5;
+    padding: 7px 0;
+}
+
+.service-row-features li svg {
+    flex-shrink: 0;
+    color: var(--success);
+    margin-top: 2px;
+}
+
+.service-row-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Additional Services */
+.additional-services {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    border: 1px solid rgba(44,36,32,0.06);
+}
+
+.additional-services h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--navy);
+    font-weight: 400;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.additional-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.additional-item {
+    padding: 20px;
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(196, 90, 45, 0.08);
+}
+
+.additional-item strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.additional-price {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--copper);
+    margin-bottom: 8px;
+}
+
+.additional-item p {
+    font-size: 0.85rem;
+    color: var(--warm-gray);
+    line-height: 1.6;
+}
+
+/* --- Who We Serve --- */
+.who-we-serve {
+    padding: 72px 0;
+    background: var(--warm-white);
+}
+
+.serve-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.serve-card {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(44,36,32,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.serve-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.serve-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--copper);
+}
+
+.serve-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.serve-card p {
+    color: var(--warm-gray);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+/* --- Why Pro --- */
+.why-pro {
+    padding: 72px 0;
+    background: var(--cream);
+}
+
+.why-pro-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.why-pro-item {
+    display: flex;
+    gap: 16px;
+    background: #fff;
+    padding: 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(44,36,32,0.06);
+}
+
+.why-pro-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--copper);
+}
+
+.why-pro-item strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.why-pro-item p {
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+    line-height: 1.6;
+}
+
+/* --- Process --- */
+.process {
+    padding: 72px 0;
+    background: var(--warm-white);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.process-step {
+    text-align: center;
+    position: relative;
+}
+
+.process-number {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.process-step h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.process-step p {
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+    line-height: 1.65;
+}
+
+/* --- FAQ --- */
+.faq-section {
+    padding: 72px 0;
+    background: var(--cream);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(44,36,32,0.06);
+}
+
+.faq-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.faq-item p {
+    color: var(--warm-gray);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .explainer-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .service-row {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 32px 28px;
+    }
+
+    .service-row-desc {
+        padding-right: 0;
+    }
+
+    .serve-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .additional-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    .why-pro-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-row {
+        padding: 24px 20px;
+        gap: 20px;
+    }
+
+    .service-row-desc h3 {
+        font-size: 1.35rem;
+    }
+
+    .service-row-amount {
+        font-size: 2rem;
+    }
+
+    .serve-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

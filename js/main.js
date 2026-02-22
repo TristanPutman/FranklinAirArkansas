@@ -36,6 +36,11 @@
     // Scroll-triggered animations with stagger
     var animatedElements = document.querySelectorAll('[data-animate]');
 
+    // Mark elements so CSS fallback animation is disabled (JS will handle it)
+    animatedElements.forEach(function (el) {
+        el.classList.add('js-ready');
+    });
+
     if (animatedElements.length > 0 && 'IntersectionObserver' in window) {
         var observer = new IntersectionObserver(function (entries) {
             // Collect newly visible elements to stagger them
