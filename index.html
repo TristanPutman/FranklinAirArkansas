@@ -3,18 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franklin Air Arkansas | Heating & Air Conditioning</title>
-    <meta name="description" content="Franklin Air Arkansas - Professional heating and air conditioning services in Arkansas. Installation, repair, and maintenance for residential and commercial HVAC systems.">
+    <title>Franklin Air Arkansas | Heating & Air Conditioning | (479) 207-2454</title>
+    <meta name="description" content="Franklin Air Arkansas - Thomas Franklin's trusted heating and air conditioning service. AC repair, furnace installation, and HVAC maintenance in Arkansas. Call (479) 207-2454 for a free estimate.">
+    <meta name="keywords" content="HVAC Arkansas, AC repair, heating repair, air conditioning, furnace, heat pump, Franklin Air, Arkansas HVAC">
 
-    <!-- Facebook / Open Graph Meta Tags (for Facebook advertising) -->
+    <!-- Facebook / Open Graph Meta Tags -->
     <meta property="og:title" content="Franklin Air Arkansas | Heating & Air Conditioning">
-    <meta property="og:description" content="Professional heating and air conditioning services in Arkansas. Installation, repair, and maintenance.">
+    <meta property="og:description" content="Trusted HVAC service by Thomas Franklin. AC repair, heating installation & maintenance in Arkansas. Call (479) 207-2454 for your free estimate today.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://franklinairarkansas.com">
     <meta property="og:image" content="https://franklinairarkansas.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Franklin Air Arkansas - Professional Heating and Air Conditioning">
     <meta property="og:site_name" content="Franklin Air Arkansas">
+    <meta property="og:locale" content="en_US">
+    <meta property="fb:app_id" content="">
 
-    <!-- Facebook Pixel (replace YOUR_PIXEL_ID with actual pixel ID) -->
+    <!-- Twitter Card (also used by Facebook as fallback) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Franklin Air Arkansas | Heating & Air Conditioning">
+    <meta name="twitter:description" content="Trusted HVAC service by Thomas Franklin. Call (479) 207-2454 for your free estimate.">
+    <meta name="twitter:image" content="https://franklinairarkansas.com/images/og-image.jpg">
+
+    <!-- Structured Data for Local Business (helps Facebook & Google) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HVACBusiness",
+        "name": "Franklin Air Arkansas",
+        "description": "Professional heating and air conditioning services in Arkansas",
+        "url": "https://franklinairarkansas.com",
+        "telephone": "+1-479-207-2454",
+        "email": "info@franklinairarkansas.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "AR",
+            "addressCountry": "US"
+        },
+        "areaServed": {
+            "@type": "State",
+            "name": "Arkansas"
+        },
+        "priceRange": "$$",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "07:00",
+            "closes": "18:00"
+        }
+    }
+    </script>
+
+    <!-- Facebook Pixel (uncomment and replace YOUR_PIXEL_ID when ready) -->
     <!-- <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -31,85 +72,302 @@
     src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     /></noscript> -->
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:ital,opsz,wght@0,6..12,300..1000;1,6..12,300..1000&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <span class="top-bar-text">Serving Arkansas with honest, reliable HVAC service</span>
+            <a href="tel:+14792072454" class="top-bar-phone">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (479) 207-2454
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="/" class="logo">Franklin Air Arkansas</a>
-                <button class="nav-toggle" aria-label="Toggle navigation">
+        <nav class="navbar" id="navbar">
+            <div class="container nav-inner">
+                <a href="/" class="logo">
+                    <span class="logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                            <rect width="40" height="40" rx="8" fill="#C45A2D"/>
+                            <path d="M12 28V16l8-6 8 6v12H24v-7a1 1 0 00-1-1h-6a1 1 0 00-1 1v7h-4z" fill="#FFF5EB"/>
+                            <circle cx="20" cy="18" r="2.5" stroke="#FFF5EB" stroke-width="1.5" fill="none"/>
+                            <path d="M18.5 18h3M20 16.5v3" stroke="#FFF5EB" stroke-width="1"/>
+                        </svg>
+                    </span>
+                    <span class="logo-text">
+                        <span class="logo-name">Franklin Air</span>
+                        <span class="logo-tagline">Arkansas</span>
+                    </span>
+                </a>
+                <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
                     <span></span><span></span><span></span>
                 </button>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#why-us">Why Us</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="tel:+1XXXXXXXXXX" class="btn btn-phone">Call Now</a></li>
+                    <li><a href="tel:+14792072454" class="btn btn-nav-cta">Call Now</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <main>
+        <!-- Hero -->
         <section class="hero">
-            <div class="container">
-                <h1>Your Comfort Is Our Business</h1>
-                <p>Professional heating and air conditioning services in Arkansas</p>
-                <a href="#contact" class="btn btn-primary">Get a Free Estimate</a>
-                <a href="tel:+1XXXXXXXXXX" class="btn btn-secondary">Call Now</a>
-            </div>
-        </section>
-
-        <section id="services" class="services">
-            <div class="container">
-                <h2>Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>AC Installation</h3>
-                        <p>New air conditioning system installation for homes and businesses.</p>
+            <div class="hero-bg"></div>
+            <div class="container hero-content">
+                <div class="hero-badge" data-animate>Licensed &amp; Insured</div>
+                <h1 data-animate>Keep Your Home<br><span class="hero-accent">Comfortable Year-Round</span></h1>
+                <p class="hero-sub" data-animate>Thomas Franklin and the Franklin Air team provide honest, affordable heating and air conditioning service across Arkansas. No surprises, no gimmicks &mdash; just quality work.</p>
+                <div class="hero-actions" data-animate>
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Get a Free Estimate
+                    </a>
+                    <a href="tel:+14792072454" class="btn btn-outline btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        (479) 207-2454
+                    </a>
+                </div>
+                <div class="hero-trust" data-animate>
+                    <div class="trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        Family Owned
                     </div>
-                    <div class="service-card">
-                        <h3>Heating Systems</h3>
-                        <p>Furnace and heat pump installation, repair, and maintenance.</p>
+                    <div class="trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        Fair &amp; Honest Pricing
                     </div>
-                    <div class="service-card">
-                        <h3>HVAC Repair</h3>
-                        <p>Fast, reliable repair service to get your system back up and running.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Maintenance</h3>
-                        <p>Preventive maintenance plans to keep your system running efficiently.</p>
+                    <div class="trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        Free Estimates
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about">
+        <!-- Services -->
+        <section id="services" class="services">
             <div class="container">
-                <h2>About Franklin Air Arkansas</h2>
-                <p>Serving Arkansas with reliable, honest, and affordable heating and air conditioning services. We take pride in keeping your home comfortable year-round.</p>
+                <div class="section-header" data-animate>
+                    <span class="section-label">What We Do</span>
+                    <h2>Heating &amp; Cooling Services<br>You Can Count On</h2>
+                    <p class="section-desc">From emergency repairs to full system installations, Franklin Air handles it all. We service all major brands and stand behind every job.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-animate>
+                        <div class="service-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                                <path d="M6 10v4M10 10v4M14 10v4M18 10v4"/>
+                                <path d="M8 6V4M16 6V4"/>
+                            </svg>
+                        </div>
+                        <h3>AC Installation &amp; Repair</h3>
+                        <p>New system installation, emergency repairs, and refrigerant recharges. We keep you cool when Arkansas summers heat up.</p>
+                    </div>
+                    <div class="service-card" data-animate>
+                        <div class="service-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                <circle cx="12" cy="12" r="4"/>
+                            </svg>
+                        </div>
+                        <h3>Heating &amp; Furnace</h3>
+                        <p>Furnace repair, heat pump installation, and heating system replacements. Stay warm and safe all winter long.</p>
+                    </div>
+                    <div class="service-card" data-animate>
+                        <div class="service-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <h3>Repair &amp; Diagnostics</h3>
+                        <p>Fast, accurate troubleshooting for any HVAC problem. We diagnose the issue, explain it clearly, and fix it right the first time.</p>
+                    </div>
+                    <div class="service-card" data-animate>
+                        <div class="service-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3>Maintenance Plans</h3>
+                        <p>Preventive tune-ups that catch small problems before they become expensive emergencies. Extend your system&rsquo;s life and save money.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Why Choose Us -->
+        <section id="why-us" class="why-us">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <span class="section-label">Why Franklin Air</span>
+                    <h2>What Makes Us Different</h2>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card" data-animate>
+                        <div class="why-number">01</div>
+                        <h3>Honest, Upfront Pricing</h3>
+                        <p>You&rsquo;ll know the cost before we start. No hidden fees, no surprise charges. We treat your wallet with the same respect as your home.</p>
+                    </div>
+                    <div class="why-card" data-animate>
+                        <div class="why-number">02</div>
+                        <h3>Local &amp; Family-Owned</h3>
+                        <p>Thomas Franklin lives and works right here in Arkansas. When you call, you&rsquo;re not getting a call center &mdash; you&rsquo;re getting a neighbor.</p>
+                    </div>
+                    <div class="why-card" data-animate>
+                        <div class="why-number">03</div>
+                        <h3>Quality Work, Every Time</h3>
+                        <p>We stand behind every repair and installation. If something isn&rsquo;t right, we come back and make it right. That&rsquo;s a promise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="about">
+            <div class="container about-inner">
+                <div class="about-text" data-animate>
+                    <span class="section-label">About Us</span>
+                    <h2>Meet Thomas Franklin</h2>
+                    <p>Franklin Air Arkansas was started with a simple idea: provide heating and air conditioning service the way it should be done &mdash; with honesty, skill, and respect for every customer.</p>
+                    <p>Thomas Franklin built this business on the belief that Arkansas families deserve HVAC service they can trust. No high-pressure sales tactics, no unnecessary upsells. Just a straightforward diagnosis, a fair price, and quality work that lasts.</p>
+                    <p>Whether it&rsquo;s a quick repair or a full system installation, Thomas and the Franklin Air team treat every home like their own.</p>
+                    <a href="tel:+14792072454" class="btn btn-primary">Call Thomas Today</a>
+                </div>
+                <div class="about-stats" data-animate>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <span class="stat-label">Licensed &amp; Insured</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <span class="stat-label">Family-Owned &amp; Operated</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <span class="stat-label">Prompt &amp; Reliable Service</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <span class="stat-label">Satisfaction Guaranteed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <div class="container cta-inner" data-animate>
+                <div class="cta-text">
+                    <h2>Need HVAC Help Today?</h2>
+                    <p>Don&rsquo;t sweat it (or freeze). Call Thomas for fast, friendly service.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="tel:+14792072454" class="btn btn-cta">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        (479) 207-2454
+                    </a>
+                    <a href="#contact" class="btn btn-cta-outline">Request Estimate</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
         <section id="contact" class="contact">
             <div class="container">
-                <h2>Contact Us</h2>
-                <p>Ready to get started? Reach out for a free estimate.</p>
-                <div class="contact-info">
-                    <p><strong>Phone:</strong> <a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:info@franklinairarkansas.com">info@franklinairarkansas.com</a></p>
-                    <p><strong>Service Area:</strong> Arkansas</p>
+                <div class="section-header" data-animate>
+                    <span class="section-label">Get In Touch</span>
+                    <h2>Contact Franklin Air</h2>
+                    <p class="section-desc">Ready to get comfortable? Reach out for a free, no-obligation estimate. We respond fast.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card" data-animate>
+                        <div class="contact-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <h3>Call Us</h3>
+                        <a href="tel:+14792072454" class="contact-link-big">(479) 207-2454</a>
+                        <p>Mon&ndash;Sat, 7am&ndash;6pm</p>
+                    </div>
+                    <div class="contact-card" data-animate>
+                        <div class="contact-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <h3>Email Us</h3>
+                        <a href="mailto:info&#64;franklinairarkansas.com" class="contact-link-big">info&#64;franklinairarkansas.com</a>
+                        <p>We reply within 24 hours</p>
+                    </div>
+                    <div class="contact-card" data-animate>
+                        <div class="contact-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <h3>Service Area</h3>
+                        <span class="contact-link-big">Arkansas</span>
+                        <p>Northwest AR &amp; surrounding areas</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Franklin Air Arkansas. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">Franklin Air Arkansas</span>
+                <p>Honest heating and air conditioning service for Arkansas families.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#services">Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="tel:+14792072454">(479) 207-2454</a>
+                <a href="mailto:info&#64;franklinairarkansas.com">info&#64;franklinairarkansas.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Franklin Air Arkansas. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:+14792072454" class="mobile-cta-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call (479) 207-2454
+        </a>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
