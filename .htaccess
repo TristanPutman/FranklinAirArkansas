@@ -9,3 +9,20 @@
     Order Allow,Deny
     Deny from all
 </Files>
+
+# Protect schema.sql from direct access
+<Files "schema.sql">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Protect includes directory — PHP files should only be included, not accessed directly
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# Protect uploads directory — files served through PHP for access control
+<IfModule mod_rewrite.c>
+    RewriteRule ^uploads/ - [F,L]
+</IfModule>

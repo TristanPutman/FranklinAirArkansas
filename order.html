@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order HVAC Design Report | Franklin Air Arkansas</title>
+    <meta name="description" content="Order a professional HVAC design report from Franklin Air Arkansas. Load calculations, duct design, equipment verification, and more.">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#C45A2D">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:ital,opsz,wght@0,6..12,300..1000;1,6..12,300..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css?v=5">
+    <link rel="stylesheet" href="css/wizard.css?v=1">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <span class="top-bar-text">Serving Arkansas with honest, reliable HVAC service</span>
+            <a href="tel:+14792072454" class="top-bar-phone">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (479) 207-2454
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar" id="navbar">
+            <div class="container nav-inner">
+                <a href="/" class="logo">
+                    <span class="logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                            <rect width="40" height="40" rx="8" fill="#C45A2D"/>
+                            <path d="M12 28V16l8-6 8 6v12H24v-7a1 1 0 00-1-1h-6a1 1 0 00-1 1v7h-4z" fill="#FFF5EB"/>
+                            <circle cx="20" cy="18" r="2.5" stroke="#FFF5EB" stroke-width="1.5" fill="none"/>
+                            <path d="M18.5 18h3M20 16.5v3" stroke="#FFF5EB" stroke-width="1"/>
+                        </svg>
+                    </span>
+                    <span class="logo-text">
+                        <span class="logo-name">Franklin Air</span>
+                        <span class="logo-tagline">Arkansas</span>
+                    </span>
+                </a>
+                <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/#why-us">Why Us</a></li>
+                    <li><a href="/professionals.html">Professionals</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="tel:+14792072454" class="btn btn-nav-cta">Call Now</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="order-page">
+            <div class="container">
+
+                <!-- Progress Bar -->
+                <div class="wizard-progress">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-num"><span>1</span></div>
+                        <span class="step-label">Service</span>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-num"><span>2</span></div>
+                        <span class="step-label">Project</span>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-num"><span>3</span></div>
+                        <span class="step-label">Details</span>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-num"><span>4</span></div>
+                        <span class="step-label">Upload</span>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="5">
+                        <div class="step-num"><span>5</span></div>
+                        <span class="step-label">Review</span>
+                    </div>
+                </div>
+
+                <div class="wizard">
+
+                    <!-- Step 1: Service Selection -->
+                    <div class="wizard-step active" data-step="1">
+                        <h2>Choose Your Service</h2>
+                        <p class="step-desc">Select the HVAC design service you need. Not sure? Call Thomas at (479) 207-2454 for guidance.</p>
+
+                        <div class="service-options">
+                            <label class="service-option">
+                                <input type="radio" name="service_type" value="load_calc">
+                                <div class="option-header">
+                                    <span class="option-name">Precision Load Calculation</span>
+                                    <span class="option-price">$190</span>
+                                </div>
+                                <div class="option-desc">Manual J load calculation for proper equipment sizing. Required for new construction and system replacements.</div>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="radio" name="service_type" value="load_calc_duct">
+                                <span class="option-popular">Most Popular</span>
+                                <div class="option-header">
+                                    <span class="option-name">Load Calc + Duct Design</span>
+                                    <span class="option-price">$450</span>
+                                </div>
+                                <div class="option-desc">Manual J load calculation plus Manual D duct design. Complete sizing and airflow solution.</div>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="radio" name="service_type" value="equipment_verification">
+                                <div class="option-header">
+                                    <span class="option-name">Equipment Verification</span>
+                                    <span class="option-price">$99</span>
+                                </div>
+                                <div class="option-desc">Verify that proposed equipment matches the load requirements for your project.</div>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="radio" name="service_type" value="rescheck">
+                                <div class="option-header">
+                                    <span class="option-name">REScheck Energy Calc</span>
+                                    <span class="option-price">$170</span>
+                                </div>
+                                <div class="option-desc">REScheck compliance report for building permits and energy code verification.</div>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="radio" name="service_type" value="complete_package">
+                                <div class="option-header">
+                                    <span class="option-name">Complete Design Package</span>
+                                    <span class="option-price">$549</span>
+                                </div>
+                                <div class="option-desc">Everything included: load calc, duct design, equipment verification, and REScheck. Best value for new construction.</div>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="radio" name="service_type" value="commercial">
+                                <div class="option-header">
+                                    <span class="option-name">Commercial HVAC Reports</span>
+                                    <span class="option-price">Call for Quote</span>
+                                </div>
+                                <div class="option-desc">Commercial load calculations, duct design, and energy modeling. Contact us for a custom quote.</div>
+                            </label>
+                        </div>
+
+                        <div class="options-row">
+                            <div class="option-group">
+                                <label for="num_systems">Number of Systems</label>
+                                <select name="num_systems" id="num_systems">
+                                    <option value="1">1 system</option>
+                                    <option value="2">2 systems</option>
+                                    <option value="3">3 systems</option>
+                                    <option value="4">4 systems</option>
+                                    <option value="5">5 systems</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label class="rush-toggle">
+                                    <input type="checkbox" name="rush">
+                                    <span>
+                                        <span class="rush-label">Rush Service</span><br>
+                                        <span class="rush-price">+$75 &mdash; Priority 2-3 day turnaround</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="price-display">
+                            <div class="price-amount" id="priceDisplay">$0</div>
+                            <div class="price-breakdown" id="priceBreakdown"></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Project Information -->
+                    <div class="wizard-step" data-step="2">
+                        <h2>Project Information</h2>
+                        <p class="step-desc">Tell us about the building. This information helps Thomas produce an accurate design report.</p>
+
+                        <div class="form-group">
+                            <label for="project_type">Project Type <span class="required">*</span></label>
+                            <select name="project_type" id="project_type">
+                                <option value="">Select project type</option>
+                                <option value="new_construction">New Construction</option>
+                                <option value="existing">Existing Home</option>
+                                <option value="addition">Addition / Renovation</option>
+                                <option value="commercial">Commercial</option>
+                            </select>
+                        </div>
+
+                        <div class="field-section">
+                            <h3>Property Address</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address_street">Street Address <span class="required">*</span></label>
+                            <input type="text" name="address_street" id="address_street" placeholder="123 Main Street">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address_city">City <span class="required">*</span></label>
+                                <input type="text" name="address_city" id="address_city" placeholder="Fort Smith">
+                            </div>
+                            <div class="form-group">
+                                <label for="address_state">State <span class="required">*</span></label>
+                                <select name="address_state" id="address_state">
+                                    <option value="">Select state</option>
+                                    <option value="AR" selected>Arkansas</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="OTHER">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address_zip">ZIP Code <span class="required">*</span></label>
+                            <input type="text" name="address_zip" id="address_zip" placeholder="72901" maxlength="10" style="max-width:180px;">
+                        </div>
+
+                        <div class="field-section">
+                            <h3>Building Details</h3>
+                        </div>
+
+                        <div class="form-row form-row-4">
+                            <div class="form-group">
+                                <label for="sqft">Square Footage <span class="required">*</span></label>
+                                <input type="number" name="sqft" id="sqft" placeholder="2000" min="100" max="99999">
+                            </div>
+                            <div class="form-group">
+                                <label for="stories">Stories <span class="required">*</span></label>
+                                <select name="stories" id="stories">
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bedrooms">Bedrooms <span class="required">*</span></label>
+                                <select name="bedrooms" id="bedrooms">
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6+">6+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathrooms">Bathrooms <span class="required">*</span></label>
+                                <select name="bathrooms" id="bathrooms">
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3">3</option>
+                                    <option value="3.5">3.5</option>
+                                    <option value="4+">4+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="foundation">Foundation Type <span class="required">*</span></label>
+                                <select name="foundation" id="foundation">
+                                    <option value="">Select foundation</option>
+                                    <option value="slab">Slab on Grade</option>
+                                    <option value="crawlspace">Crawl Space</option>
+                                    <option value="basement">Basement</option>
+                                    <option value="pier">Pier and Beam</option>
+                                    <option value="mixed">Mixed / Combination</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="yearBuiltGroup" style="display:none;">
+                                <label for="year_built">Year Built <span class="optional">(optional)</span></label>
+                                <input type="number" name="year_built" id="year_built" placeholder="1995" min="1900" max="2030">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Additional Details -->
+                    <div class="wizard-step" data-step="3">
+                        <h2>Additional Details</h2>
+                        <p class="step-desc">These details help us produce the most accurate report. Fill in what you can.</p>
+
+                        <div id="loadCalcFields">
+                            <div class="field-section">
+                                <h3>Building Envelope</h3>
+                                <p>Information about insulation, windows, and construction</p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="wall_insulation">Wall Insulation <span class="optional">(optional)</span></label>
+                                    <select name="wall_insulation" id="wall_insulation">
+                                        <option value="">Not sure / Unknown</option>
+                                        <option value="r13">R-13 (2x4 walls)</option>
+                                        <option value="r19">R-19 (2x6 walls)</option>
+                                        <option value="r21">R-21 (2x6 high-density)</option>
+                                        <option value="spray_foam">Spray Foam</option>
+                                        <option value="none">None / Uninsulated</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attic_insulation">Attic Insulation <span class="optional">(optional)</span></label>
+                                    <select name="attic_insulation" id="attic_insulation">
+                                        <option value="">Not sure / Unknown</option>
+                                        <option value="r30">R-30</option>
+                                        <option value="r38">R-38</option>
+                                        <option value="r49">R-49</option>
+                                        <option value="spray_foam">Spray Foam</option>
+                                        <option value="none">None / Uninsulated</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="window_type">Window Type <span class="optional">(optional)</span></label>
+                                    <select name="window_type" id="window_type">
+                                        <option value="">Not sure / Unknown</option>
+                                        <option value="single">Single Pane</option>
+                                        <option value="double">Double Pane</option>
+                                        <option value="double_lowe">Double Pane Low-E</option>
+                                        <option value="triple">Triple Pane</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="garage">Garage <span class="optional">(optional)</span></label>
+                                    <select name="garage" id="garage">
+                                        <option value="">Select</option>
+                                        <option value="none">No Garage</option>
+                                        <option value="attached">Attached</option>
+                                        <option value="detached">Detached</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="equipmentFields" style="display:none;">
+                            <div class="field-section">
+                                <h3>Equipment Information</h3>
+                                <p>Details about the proposed or existing equipment</p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="equipment_brand">Equipment Brand <span class="optional">(optional)</span></label>
+                                    <input type="text" name="equipment_brand" id="equipment_brand" placeholder="e.g., Carrier, Trane, Lennox">
+                                </div>
+                                <div class="form-group">
+                                    <label for="equipment_model">Model Number <span class="optional">(optional)</span></label>
+                                    <input type="text" name="equipment_model" id="equipment_model" placeholder="Model number">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="equipment_tonnage">Proposed Tonnage <span class="optional">(optional)</span></label>
+                                <select name="equipment_tonnage" id="equipment_tonnage">
+                                    <option value="">Not sure</option>
+                                    <option value="1.5">1.5 Ton</option>
+                                    <option value="2">2 Ton</option>
+                                    <option value="2.5">2.5 Ton</option>
+                                    <option value="3">3 Ton</option>
+                                    <option value="3.5">3.5 Ton</option>
+                                    <option value="4">4 Ton</option>
+                                    <option value="5">5 Ton</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="rescheckFields" style="display:none;">
+                            <div class="field-section">
+                                <h3>Energy Code Details</h3>
+                                <p>Information needed for REScheck compliance</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="energy_code">Energy Code <span class="optional">(optional)</span></label>
+                                <select name="energy_code" id="energy_code">
+                                    <option value="">Not sure / Default for area</option>
+                                    <option value="iecc2009">2009 IECC</option>
+                                    <option value="iecc2012">2012 IECC</option>
+                                    <option value="iecc2015">2015 IECC</option>
+                                    <option value="iecc2018">2018 IECC</option>
+                                    <option value="iecc2021">2021 IECC</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field-section">
+                            <h3>Additional Notes</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Anything else we should know? <span class="optional">(optional)</span></label>
+                            <textarea name="notes" id="notes" rows="4" placeholder="Special requirements, deadlines, questions, existing equipment details, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: File Upload -->
+                    <div class="wizard-step" data-step="4">
+                        <h2>Upload Floor Plans</h2>
+                        <p class="step-desc">Upload your floor plans, blueprints, or building drawings. PDF files work best. You can also email them later.</p>
+
+                        <div class="file-dropzone" id="fileDropzone">
+                            <div class="drop-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="17 8 12 3 7 8"/>
+                                    <line x1="12" y1="3" x2="12" y2="15"/>
+                                </svg>
+                            </div>
+                            <div class="drop-text">Drop files here or click to browse</div>
+                            <div class="drop-hint">PDF, JPG, or PNG up to 10MB each (max 5 files)</div>
+                            <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.gif,.webp" multiple style="display:none;">
+                        </div>
+
+                        <div class="file-list" id="fileList"></div>
+
+                        <label class="email-later-check">
+                            <input type="checkbox" name="email_plans_later">
+                            I'll email my floor plans to info@franklinairarkansas.com later
+                        </label>
+                    </div>
+
+                    <!-- Step 5: Review & Submit -->
+                    <div class="wizard-step" data-step="5">
+                        <h2>Review &amp; Submit</h2>
+                        <p class="step-desc">Review your order details, provide your contact information, and submit.</p>
+
+                        <div class="review-summary" id="reviewSummary"></div>
+
+                        <div class="field-section">
+                            <h3>Your Information</h3>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customer_name">Full Name <span class="required">*</span></label>
+                                <input type="text" name="customer_name" id="customer_name" placeholder="Your full name" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="customer_email">Email <span class="required">*</span></label>
+                                <input type="email" name="customer_email" id="customer_email" placeholder="you@example.com" autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customer_phone">Phone <span class="required">*</span></label>
+                                <input type="tel" name="customer_phone" id="customer_phone" placeholder="(479) 555-1234" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="customer_company">Company <span class="optional">(optional)</span></label>
+                                <input type="text" name="customer_company" id="customer_company" placeholder="Company name" autocomplete="organization">
+                            </div>
+                        </div>
+
+                        <div class="terms-check">
+                            <input type="checkbox" name="terms" id="terms">
+                            <label for="terms">I agree that this is a service order. Payment details will be provided after Thomas reviews the project. Standard turnaround is 5&ndash;7 business days (rush: 2&ndash;3 days).</label>
+                        </div>
+
+                        <div id="wizardStatus" class="wizard-status"></div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="wizard-nav">
+                        <button type="button" id="wizardPrev" class="btn btn-outline-dark" style="display:none;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                            Previous
+                        </button>
+                        <span></span>
+                        <button type="button" id="wizardNext" class="btn btn-primary">
+                            Next Step
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
+                        <button type="button" id="wizardSubmit" class="btn btn-primary" style="display:none;">
+                            Submit Order
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">Franklin Air Arkansas</span>
+                <p>Honest heating and air conditioning service for Arkansas families.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="/#services">Services</a>
+                <a href="/#why-us">Why Us</a>
+                <a href="/professionals.html">Professionals</a>
+                <a href="/#contact">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="tel:+14792072454">(479) 207-2454</a>
+                <a href="mailto:info&#64;franklinairarkansas.com">info&#64;franklinairarkansas.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Franklin Air Arkansas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=5"></script>
+    <script src="js/wizard.js?v=1"></script>
+</body>
+</html>

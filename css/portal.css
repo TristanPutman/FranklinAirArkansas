@@ -1,0 +1,766 @@
+/* ============================================
+   FRANKLIN AIR ARKANSAS - CUSTOMER PORTAL
+   ============================================ */
+
+/* --- Portal Layout --- */
+.portal-wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--cream);
+}
+
+.portal-header {
+    background: var(--navy);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portal-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.portal-logo-tag {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--copper-light);
+    opacity: 0.85;
+}
+
+.portal-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.portal-header-user {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 600;
+}
+
+.portal-header-link {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.portal-header-link:hover {
+    color: var(--copper-light);
+}
+
+.portal-main {
+    flex: 1;
+    padding: 32px 24px;
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* --- Login Page --- */
+.login-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    padding: 24px;
+}
+
+.login-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-brand-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.login-brand-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper);
+}
+
+.login-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+/* --- Forms --- */
+.portal-form .form-group {
+    margin-bottom: 18px;
+}
+
+.portal-form label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.portal-form input[type="email"],
+.portal-form input[type="password"],
+.portal-form input[type="text"],
+.portal-form textarea,
+.portal-form select {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    background: var(--warm-white);
+    border: 1.5px solid rgba(44,36,32,0.12);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.portal-form input:focus,
+.portal-form textarea:focus,
+.portal-form select:focus {
+    outline: none;
+    border-color: var(--copper);
+    box-shadow: 0 0 0 3px rgba(196,90,45,0.12);
+}
+
+.portal-form input::placeholder,
+.portal-form textarea::placeholder {
+    color: rgba(44,36,32,0.35);
+}
+
+.portal-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.portal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+}
+
+.portal-btn-primary {
+    background: var(--copper);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(196,90,45,0.25);
+}
+
+.portal-btn-primary:hover {
+    background: var(--copper-dark);
+    box-shadow: 0 4px 20px rgba(196,90,45,0.35);
+    transform: translateY(-1px);
+}
+
+.portal-btn-full {
+    width: 100%;
+}
+
+.portal-btn-sm {
+    padding: 8px 16px;
+    font-size: 0.88rem;
+}
+
+.portal-btn-outline {
+    background: transparent;
+    color: var(--copper);
+    border: 1.5px solid var(--copper);
+}
+
+.portal-btn-outline:hover {
+    background: var(--copper);
+    color: #fff;
+}
+
+.portal-btn-ghost {
+    background: transparent;
+    color: var(--warm-gray);
+    padding: 8px 12px;
+    font-size: 0.88rem;
+}
+
+.portal-btn-ghost:hover {
+    color: var(--copper);
+}
+
+/* --- Alert Messages --- */
+.portal-alert {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.portal-alert-error {
+    background: #fbe9e7;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.portal-alert-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+/* --- Login Links --- */
+.login-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+}
+
+.login-links a {
+    color: var(--copper);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.login-links a:hover {
+    color: var(--copper-dark);
+}
+
+/* --- Dashboard --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.dashboard-welcome h1 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--navy);
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.dashboard-welcome p {
+    font-size: 0.92rem;
+    color: var(--warm-gray);
+}
+
+.orders-empty {
+    text-align: center;
+    padding: 64px 24px;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.orders-empty-icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+    opacity: 0.3;
+}
+
+.orders-empty h2 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--navy);
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.orders-empty p {
+    color: var(--warm-gray);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+/* --- Order Cards --- */
+.order-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(44,36,32,0.04);
+}
+
+.order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.order-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 12px;
+}
+
+.order-card-number {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+}
+
+.order-card-service {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.order-card-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 0.83rem;
+    color: var(--warm-gray);
+    flex-wrap: wrap;
+}
+
+.order-card-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* --- Status Badges --- */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.badge-pending {
+    background: #FFF3E0;
+    color: #E65100;
+}
+
+.badge-progress {
+    background: #E3F2FD;
+    color: #1565C0;
+}
+
+.badge-revision {
+    background: #FFF8E1;
+    color: #F57F17;
+}
+
+.badge-completed {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.badge-cancelled {
+    background: #FAFAFA;
+    color: #757575;
+}
+
+/* --- Order Detail Page --- */
+.order-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.order-detail-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--navy);
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.order-detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--warm-gray);
+    text-decoration: none;
+    margin-bottom: 16px;
+    transition: color 0.2s;
+}
+
+.order-detail-back:hover {
+    color: var(--copper);
+}
+
+/* --- Detail Sections --- */
+.detail-section {
+    background: #fff;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(44,36,32,0.04);
+}
+
+.detail-section-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--navy);
+    font-weight: 400;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(44,36,32,0.06);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.detail-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--warm-gray-light);
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    font-weight: 600;
+}
+
+.detail-value-lg {
+    font-size: 1.15rem;
+    font-family: var(--font-display);
+    color: var(--navy);
+}
+
+/* --- Project Details --- */
+.project-detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(44,36,32,0.04);
+    font-size: 0.92rem;
+}
+
+.project-detail-item:last-child {
+    border-bottom: none;
+}
+
+.project-detail-key {
+    color: var(--warm-gray);
+    font-weight: 600;
+}
+
+.project-detail-val {
+    color: var(--charcoal);
+    font-weight: 700;
+    text-align: right;
+}
+
+/* --- Files List --- */
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(44,36,32,0.04);
+    gap: 12px;
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    word-break: break-all;
+}
+
+.file-meta {
+    font-size: 0.78rem;
+    color: var(--warm-gray-light);
+    margin-top: 2px;
+}
+
+.file-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--copper);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.file-download:hover {
+    color: var(--copper-dark);
+}
+
+.files-empty,
+.notes-empty {
+    text-align: center;
+    padding: 24px;
+    color: var(--warm-gray-light);
+    font-size: 0.9rem;
+}
+
+/* --- Notes/Messages Thread --- */
+.note-item {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(44,36,32,0.04);
+}
+
+.note-item:last-child {
+    border-bottom: none;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    gap: 8px;
+}
+
+.note-author {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.note-author-admin {
+    color: var(--copper);
+}
+
+.note-time {
+    font-size: 0.78rem;
+    color: var(--warm-gray-light);
+}
+
+.note-message {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.note-form {
+    padding-top: 16px;
+    border-top: 1px solid rgba(44,36,32,0.06);
+    margin-top: 8px;
+}
+
+.note-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+/* --- Order Notes (initial notes field) --- */
+.order-notes-text {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    line-height: 1.65;
+    white-space: pre-wrap;
+}
+
+/* --- Login Page (full-page centered layout) --- */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    padding: 24px;
+}
+
+/* --- Alert Messages (generic class names) --- */
+.alert {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.alert-error {
+    background: #fbe9e7;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.alert-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.alert-info {
+    background: #E3F2FD;
+    color: #1565C0;
+    border: 1px solid #90CAF9;
+}
+
+/* --- Notes Thread (standalone wrapper) --- */
+.notes-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* --- Status Badges (shared class names) --- */
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* --- Upload Form (portal) --- */
+.upload-form {
+    padding-top: 16px;
+}
+
+.upload-form input[type="file"] {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    background: var(--warm-white);
+    border: 1.5px solid rgba(44, 36, 32, 0.12);
+    border-radius: var(--radius-sm);
+    box-sizing: border-box;
+}
+
+.upload-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+    .portal-main {
+        padding: 20px 16px;
+    }
+
+    .login-card {
+        padding: 36px 24px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .order-card-top {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .order-detail-header {
+        flex-direction: column;
+    }
+
+    .portal-header {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .portal-header-actions {
+        gap: 12px;
+    }
+
+    .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-detail-item {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .project-detail-val {
+        text-align: left;
+    }
+}

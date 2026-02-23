@@ -1,0 +1,774 @@
+/* ============================================
+   ORDER WIZARD STYLES
+   ============================================ */
+
+/* --- Progress Bar --- */
+.wizard-progress {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    padding: 0 16px;
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.progress-step:not(.active):not(.completed) {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.progress-step .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--cream-dark);
+    color: var(--warm-gray);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.progress-step.active .step-num {
+    background: var(--copper);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(196, 90, 45, 0.3);
+}
+
+.progress-step.completed .step-num {
+    background: var(--success);
+    color: #fff;
+}
+
+.progress-step.completed .step-num::after {
+    content: '\2713';
+}
+
+.progress-step.completed .step-num span {
+    display: none;
+}
+
+.progress-step .step-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--warm-gray);
+    white-space: nowrap;
+}
+
+.progress-step.active .step-label {
+    color: var(--navy);
+}
+
+.progress-connector {
+    width: 32px;
+    height: 2px;
+    background: var(--cream-dark);
+    align-self: center;
+    flex-shrink: 0;
+}
+
+/* --- Wizard Container --- */
+.wizard {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.active {
+    display: block;
+    animation: fadeInUp 0.3s ease;
+}
+
+.wizard-step h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--navy);
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.wizard-step .step-desc {
+    color: var(--warm-gray);
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+/* --- Service Selection (Step 1) --- */
+.service-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.service-option {
+    position: relative;
+    background: #fff;
+    border: 2px solid rgba(44, 36, 32, 0.08);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.service-option:hover {
+    border-color: rgba(196, 90, 45, 0.3);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-option.selected {
+    border-color: var(--copper);
+    background: var(--cream);
+    box-shadow: 0 0 0 3px rgba(196, 90, 45, 0.12);
+}
+
+.service-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.service-option .option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.service-option .option-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+}
+
+.service-option .option-price {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--copper);
+    white-space: nowrap;
+}
+
+.service-option .option-desc {
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    line-height: 1.5;
+}
+
+.service-option .option-popular {
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    background: var(--copper);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 50px;
+}
+
+/* Systems & Rush row */
+.options-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.option-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.option-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.option-group select {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    background: var(--warm-white);
+    border: 1.5px solid rgba(44, 36, 32, 0.12);
+    border-radius: var(--radius-sm);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%232C2420' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.option-group select:focus {
+    outline: none;
+    border-color: var(--copper);
+    box-shadow: 0 0 0 3px rgba(196, 90, 45, 0.12);
+}
+
+/* Rush toggle */
+.rush-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--cream);
+    border: 1px solid rgba(196, 90, 45, 0.12);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    cursor: pointer;
+    margin-top: 22px;
+}
+
+.rush-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--copper);
+    cursor: pointer;
+}
+
+.rush-toggle .rush-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.rush-toggle .rush-price {
+    font-size: 0.82rem;
+    color: var(--copper);
+    font-weight: 700;
+}
+
+/* --- Price Display --- */
+.price-display {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius-md);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.price-display .price-amount {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.price-display .price-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.breakdown-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.breakdown-line.rush-line {
+    color: #ffb74d;
+}
+
+.breakdown-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.price-note {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+/* --- Form Fields (Step 2, 3, 5) --- */
+.wizard .form-group {
+    margin-bottom: 18px;
+}
+
+.wizard .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.wizard .form-row-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wizard .form-row-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.wizard label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.wizard label .required {
+    color: var(--copper);
+}
+
+.wizard label .optional {
+    color: var(--warm-gray-light);
+    font-weight: 400;
+    font-size: 0.78rem;
+}
+
+.wizard input[type="text"],
+.wizard input[type="email"],
+.wizard input[type="tel"],
+.wizard input[type="number"],
+.wizard select,
+.wizard textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    background: var(--warm-white);
+    border: 1.5px solid rgba(44, 36, 32, 0.12);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.wizard input:focus,
+.wizard select:focus,
+.wizard textarea:focus {
+    outline: none;
+    border-color: var(--copper);
+    box-shadow: 0 0 0 3px rgba(196, 90, 45, 0.12);
+}
+
+.wizard input::placeholder,
+.wizard textarea::placeholder {
+    color: rgba(44, 36, 32, 0.35);
+}
+
+.wizard select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%232C2420' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.wizard textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Error state */
+.has-error input,
+.has-error select,
+.has-error textarea {
+    border-color: #c62828;
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+
+.field-error {
+    font-size: 0.8rem;
+    color: #c62828;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* Section headers in steps */
+.field-section {
+    margin-top: 28px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(44, 36, 32, 0.08);
+}
+
+.field-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--navy);
+    font-weight: 400;
+}
+
+.field-section p {
+    font-size: 0.82rem;
+    color: var(--warm-gray-light);
+    margin-top: 2px;
+}
+
+/* --- File Upload (Step 4) --- */
+.file-dropzone {
+    border: 2px dashed rgba(44, 36, 32, 0.15);
+    border-radius: var(--radius-md);
+    padding: 40px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--warm-white);
+}
+
+.file-dropzone:hover,
+.file-dropzone.dragover {
+    border-color: var(--copper);
+    background: var(--cream);
+}
+
+.file-dropzone .drop-icon {
+    color: var(--copper);
+    margin-bottom: 12px;
+}
+
+.file-dropzone .drop-text {
+    font-size: 0.95rem;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.file-dropzone .drop-hint {
+    font-size: 0.82rem;
+    color: var(--warm-gray-light);
+}
+
+.file-list {
+    margin-top: 16px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1px solid rgba(44, 36, 32, 0.06);
+    border-radius: var(--radius-sm);
+    margin-bottom: 6px;
+}
+
+.file-icon {
+    color: var(--copper);
+    flex-shrink: 0;
+}
+
+.file-name {
+    flex: 1;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navy);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-size {
+    font-size: 0.78rem;
+    color: var(--warm-gray-light);
+    flex-shrink: 0;
+}
+
+.file-remove {
+    background: none;
+    border: none;
+    color: var(--warm-gray-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color 0.2s;
+}
+
+.file-remove:hover {
+    color: #c62828;
+}
+
+.email-later-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+    cursor: pointer;
+}
+
+.email-later-check input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--copper);
+    cursor: pointer;
+}
+
+/* --- Review (Step 5) --- */
+.review-summary {
+    background: #fff;
+    border: 1px solid rgba(44, 36, 32, 0.06);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.review-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(44, 36, 32, 0.04);
+}
+
+.review-row:last-child {
+    border-bottom: none;
+}
+
+.review-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--warm-gray-light);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.review-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: right;
+    max-width: 60%;
+    word-break: break-word;
+}
+
+.review-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--navy);
+    color: #fff;
+    font-weight: 700;
+}
+
+.review-total span:last-child {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+}
+
+/* Terms checkbox */
+.terms-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+    line-height: 1.5;
+}
+
+.terms-check input {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--copper);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* --- Navigation Buttons --- */
+.wizard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(44, 36, 32, 0.06);
+}
+
+.wizard-nav .btn {
+    min-width: 140px;
+    justify-content: center;
+}
+
+.btn-outline-dark {
+    background: transparent;
+    color: var(--navy);
+    border: 2px solid rgba(44, 36, 32, 0.15);
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+}
+
+.btn-outline-dark:hover {
+    border-color: var(--navy);
+    background: var(--cream);
+}
+
+/* --- Status messages --- */
+.wizard-status {
+    margin-top: 14px;
+    padding: 0;
+    font-size: 0.9rem;
+    text-align: center;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s;
+}
+
+.wizard-status.error {
+    padding: 12px 16px;
+    background: #fbe9e7;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* --- Success state --- */
+.wizard-success {
+    text-align: center;
+    padding: 48px 24px;
+}
+
+.success-icon {
+    color: var(--success);
+    margin-bottom: 16px;
+}
+
+.wizard-success h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.success-order-num {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--copper);
+    margin-bottom: 16px;
+}
+
+.wizard-success p {
+    color: var(--warm-gray);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto 12px;
+}
+
+.success-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+/* --- Order page layout --- */
+.order-page {
+    padding: 48px 0 72px;
+    background: var(--cream);
+    min-height: 60vh;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .wizard-progress {
+        gap: 4px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .progress-step .step-label {
+        display: none;
+    }
+
+    .progress-connector {
+        width: 16px;
+    }
+
+    .service-options {
+        grid-template-columns: 1fr;
+    }
+
+    .wizard .form-row,
+    .wizard .form-row-3,
+    .wizard .form-row-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .options-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .wizard-step h2 {
+        font-size: 1.5rem;
+    }
+
+    .price-display .price-amount {
+        font-size: 2rem;
+    }
+
+    .wizard-nav {
+        flex-direction: column-reverse;
+    }
+
+    .wizard-nav .btn {
+        width: 100%;
+    }
+
+    .success-actions {
+        flex-direction: column;
+    }
+
+    .success-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-option {
+        padding: 16px;
+    }
+
+    .wizard-step h2 {
+        font-size: 1.3rem;
+    }
+}

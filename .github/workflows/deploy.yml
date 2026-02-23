@@ -29,3 +29,6 @@ jobs:
             node_modules/**
             *.md
             LICENSE
+            config.php
+            schema.sql
+            uploads/**
