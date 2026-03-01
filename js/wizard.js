@@ -5,13 +5,13 @@
     'use strict';
 
     // --- Pricing (mirrors includes/pricing.php) ---
+    // Per-sqft pricing with minimums (all in cents)
     var PRICING = {
-        load_calc:                { base: 19000, addl: 13900, label: 'Precision Load Calculation' },
-        load_calc_duct:           { base: 45000, addl: 33800, label: 'Load Calc + Duct Design' },
-        equipment_verification:   { base: 9900,  addl: 9900,  label: 'Equipment Verification' },
-        rescheck:                 { base: 17000, addl: 0,     label: 'REScheck Energy Calculation' },
-        complete_package:         { base: 54900, addl: 43700, label: 'Complete Design Package' },
-        commercial:               { base: 0,     addl: 0,     label: 'Commercial HVAC Reports' }
+        manual_j:    { perSqft: 15, min: 35000, label: 'Manual J Load Calculation' },
+        manual_jd:   { perSqft: 35, min: 35000, label: 'Manual J & D' },
+        manual_jds:  { perSqft: 50, min: 35000, label: 'Manual J, D, & S' },
+        rescheck:    { perSqft: 0,  min: 17000, label: 'REScheck Energy Calculation' },
+        commercial:  { perSqft: 0,  min: 0,     label: 'Commercial HVAC Reports' }
     };
     var RUSH_FEE = 7500;
 
@@ -81,16 +81,16 @@
 
             case 2:
                 var requiredFields = [
+                    { name: 'customer_name', msg: 'Client name is required.' },
+                    { name: 'customer_email', msg: 'Email is required.' },
+                    { name: 'customer_phone', msg: 'Phone number is required.' },
                     { name: 'project_type', msg: 'Please select a project type.' },
                     { name: 'address_street', msg: 'Street address is required.' },
                     { name: 'address_city', msg: 'City is required.' },
                     { name: 'address_state', msg: 'State is required.' },
                     { name: 'address_zip', msg: 'ZIP code is required.' },
                     { name: 'sqft', msg: 'Square footage is required.' },
-                    { name: 'stories', msg: 'Number of stories is required.' },
-                    { name: 'bedrooms', msg: 'Number of bedrooms is required.' },
-                    { name: 'bathrooms', msg: 'Number of bathrooms is required.' },
-                    { name: 'foundation', msg: 'Foundation type is required.' }
+                    { name: 'front_door_faces', msg: 'Front door direction is required.' }
                 ];
                 requiredFields.forEach(function (f) {
                     var el = $('[name="' + f.name + '"]');
@@ -98,6 +98,11 @@
                         errors.push({ field: f.name, msg: f.msg });
                     }
                 });
+                // Validate email format
+                var emailEl = $('[name="customer_email"]');
+                if (emailEl && emailEl.value.trim() && !isValidEmail(emailEl.value)) {
+                    errors.push({ field: 'customer_email', msg: 'A valid email is required.' });
+                }
                 break;
 
             case 3:
@@ -109,14 +114,7 @@
                 break;
 
             case 5:
-                var nameEl = $('[name="customer_name"]');
-                var emailEl = $('[name="customer_email"]');
-                var phoneEl = $('[name="customer_phone"]');
                 var termsEl = $('[name="terms"]');
-
-                if (!nameEl.value.trim()) errors.push({ field: 'customer_name', msg: 'Name is required.' });
-                if (!emailEl.value.trim() || !isValidEmail(emailEl.value)) errors.push({ field: 'customer_email', msg: 'A valid email is required.' });
-                if (!phoneEl.value.trim()) errors.push({ field: 'customer_phone', msg: 'Phone number is required.' });
                 if (!termsEl.checked) errors.push({ field: 'terms', msg: 'Please agree to the terms.' });
                 break;
         }
@@ -164,9 +162,9 @@
         return checked ? checked.value : null;
     }
 
-    function getNumSystems() {
-        var el = $('[name="num_systems"]');
-        return el ? parseInt(el.value) || 1 : 1;
+    function getSqft() {
+        var el = $('[name="sqft"]');
+        return el ? parseInt(el.value) || 0 : 0;
     }
 
     function isRush() {
@@ -179,28 +177,54 @@
         var service = getSelectedService();
         var priceEl = $('#priceDisplay');
         var breakdownEl = $('#priceBreakdown');
+        var noteEl = $('#priceNote');
         if (!priceEl) return;
 
         if (!service || service === 'commercial') {
             priceEl.textContent = service === 'commercial' ? 'Call for Quote' : '$0';
             if (breakdownEl) breakdownEl.innerHTML = service === 'commercial' ? '<span class="price-note">Commercial projects are quoted individually.</span>' : '';
+            if (noteEl) noteEl.style.display = (!service || service === 'commercial') ? '' : 'none';
             return;
         }
 
         var p = PRICING[service];
         if (!p) return;
 
-        var numSystems = getNumSystems();
+        var sqft = getSqft();
         var rush = isRush();
-        var total = p.base;
         var lines = [];
 
-        lines.push('<span class="breakdown-line"><span>' + p.label + ' (1st system)</span><span>' + formatCents(p.base) + '</span></span>');
+        // For rescheck, flat rate
+        if (service === 'rescheck') {
+            var total = p.min;
+            lines.push('<span class="breakdown-line"><span>' + p.label + '</span><span>' + formatCents(p.min) + '</span></span>');
+            if (rush) {
+                total += RUSH_FEE;
+                lines.push('<span class="breakdown-line rush-line"><span>Rush service</span><span>+' + formatCents(RUSH_FEE) + '</span></span>');
+            }
+            priceEl.textContent = formatCents(total);
+            if (breakdownEl) breakdownEl.innerHTML = lines.join('') + '<span class="breakdown-total"><span>Total</span><span>' + formatCents(total) + '</span></span>';
+            if (noteEl) noteEl.style.display = 'none';
+            return;
+        }
 
-        if (numSystems > 1 && p.addl > 0) {
-            var addlTotal = p.addl * (numSystems - 1);
-            total += addlTotal;
-            lines.push('<span class="breakdown-line"><span>' + (numSystems - 1) + ' additional system' + (numSystems > 2 ? 's' : '') + ' × ' + formatCents(p.addl) + '</span><span>' + formatCents(addlTotal) + '</span></span>');
+        // Per-sqft with minimum
+        if (sqft === 0) {
+            priceEl.textContent = formatCents(p.min) + '+';
+            if (breakdownEl) breakdownEl.innerHTML = '<span class="breakdown-line"><span>' + p.label + ' ($' + (p.perSqft / 100).toFixed(2) + '/sqft)</span><span>' + formatCents(p.min) + ' min</span></span>';
+            if (noteEl) { noteEl.textContent = 'Enter square footage in Step 2 for exact price'; noteEl.style.display = ''; }
+            return;
+        }
+
+        var sqftTotal = p.perSqft * sqft;
+        var base = Math.max(sqftTotal, p.min);
+        var total = base;
+
+        if (sqftTotal >= p.min) {
+            lines.push('<span class="breakdown-line"><span>' + sqft.toLocaleString() + ' sqft × $' + (p.perSqft / 100).toFixed(2) + '</span><span>' + formatCents(sqftTotal) + '</span></span>');
+        } else {
+            lines.push('<span class="breakdown-line"><span>' + sqft.toLocaleString() + ' sqft × $' + (p.perSqft / 100).toFixed(2) + ' = ' + formatCents(sqftTotal) + '</span><span></span></span>');
+            lines.push('<span class="breakdown-line"><span>Minimum price applied</span><span>' + formatCents(p.min) + '</span></span>');
         }
 
         if (rush) {
@@ -212,6 +236,7 @@
         if (breakdownEl) {
             breakdownEl.innerHTML = lines.join('') + '<span class="breakdown-total"><span>Total</span><span>' + formatCents(total) + '</span></span>';
         }
+        if (noteEl) noteEl.style.display = 'none';
     }
 
     function formatCents(cents) {
@@ -225,15 +250,12 @@
         // Show/hide building detail sections based on service
         var loadCalcFields = $('#loadCalcFields');
         var rescheckFields = $('#rescheckFields');
-        var equipmentFields = $('#equipmentFields');
 
-        var showLoad = ['load_calc', 'load_calc_duct', 'complete_package'].indexOf(service) !== -1;
-        var showRescheck = service === 'rescheck' || service === 'complete_package';
-        var showEquipment = service === 'equipment_verification' || service === 'complete_package';
+        var showLoad = ['manual_j', 'manual_jd', 'manual_jds'].indexOf(service) !== -1;
+        var showRescheck = service === 'rescheck';
 
         if (loadCalcFields) loadCalcFields.style.display = showLoad ? '' : 'none';
         if (rescheckFields) rescheckFields.style.display = showRescheck ? '' : 'none';
-        if (equipmentFields) equipmentFields.style.display = showEquipment ? '' : 'none';
 
         // Year built only for existing homes
         var yearBuiltGroup = $('#yearBuiltGroup');
@@ -281,7 +303,7 @@
     function handleFiles(files) {
         var maxFiles = 5;
         var maxSize = 10 * 1024 * 1024; // 10MB
-        var allowedExts = ['pdf', 'jpg', 'jpeg', 'png', 'gif', 'webp'];
+        var allowedExts = ['pdf', 'dwg', 'jpg', 'jpeg', 'png', 'gif', 'webp'];
 
         for (var i = 0; i < files.length; i++) {
             if (uploadedFiles.length >= maxFiles) {
@@ -293,7 +315,7 @@
             var ext = file.name.split('.').pop().toLowerCase();
 
             if (allowedExts.indexOf(ext) === -1) {
-                alert(file.name + ': File type not allowed. Please upload PDF, JPG, or PNG files.');
+                alert(file.name + ': File type not allowed. Please upload PDF, DWG, JPG, or PNG files.');
                 continue;
             }
 
@@ -342,13 +364,26 @@
 
         var service = getSelectedService();
         var p = PRICING[service];
-        var numSystems = getNumSystems();
+        var sqft = getSqft();
         var rush = isRush();
 
         var rows = [];
         rows.push(reviewRow('Service', p ? p.label : service));
-        rows.push(reviewRow('Systems', numSystems));
         if (rush) rows.push(reviewRow('Rush Service', 'Yes (+$75)'));
+
+        // Client info
+        var clientFields = [
+            { name: 'customer_name', label: 'Client Name' },
+            { name: 'customer_email', label: 'Email' },
+            { name: 'customer_phone', label: 'Phone' },
+            { name: 'customer_company', label: 'Company' }
+        ];
+        clientFields.forEach(function (f) {
+            var el = $('[name="' + f.name + '"]');
+            if (el && el.value.trim()) {
+                rows.push(reviewRow(f.label, el.value.trim()));
+            }
+        });
 
         // Project info
         var fields = [
@@ -358,10 +393,19 @@
             { name: 'address_state', label: 'State' },
             { name: 'address_zip', label: 'ZIP' },
             { name: 'sqft', label: 'Square Footage' },
-            { name: 'stories', label: 'Stories' },
-            { name: 'bedrooms', label: 'Bedrooms' },
-            { name: 'bathrooms', label: 'Bathrooms' },
-            { name: 'foundation', label: 'Foundation' }
+            { name: 'front_door_faces', label: 'Front Door Faces' },
+            { name: 'floor_material', label: 'Floor Material' },
+            { name: 'roof_ceiling_material', label: 'Roof/Ceiling' },
+            { name: 'roofing_type', label: 'Roofing Type' },
+            { name: 'roof_insulation', label: 'Roof Insulation' },
+            { name: 'wall_material', label: 'Wall Material' },
+            { name: 'wall_thickness', label: 'Wall Thickness' },
+            { name: 'wall_insulation_type', label: 'Wall Insulation Type' },
+            { name: 'wall_insulation', label: 'Wall Insulation R-Value' },
+            { name: 'siding_type', label: 'Siding Type' },
+            { name: 'glass_u_value', label: 'Glass U-Value' },
+            { name: 'glass_shgc', label: 'Glass SHGC' },
+            { name: 'exterior_door', label: 'Exterior Door' }
         ];
         fields.forEach(function (f) {
             var el = $('[name="' + f.name + '"]');
@@ -393,8 +437,13 @@
 
         // Price
         if (p && service !== 'commercial') {
-            var total = p.base;
-            if (numSystems > 1) total += p.addl * (numSystems - 1);
+            var total;
+            if (service === 'rescheck') {
+                total = p.min;
+            } else {
+                var sqftTotal = p.perSqft * sqft;
+                total = Math.max(sqftTotal, p.min);
+            }
             if (rush) total += RUSH_FEE;
             rows.push('<div class="review-total"><span>Estimated Total</span><span>' + formatCents(total) + '</span></div>');
         } else if (service === 'commercial') {
@@ -428,13 +477,13 @@
 
         // Service details
         formData.append('service_type', getSelectedService());
-        formData.append('num_systems', getNumSystems());
+        formData.append('sqft', getSqft());
         formData.append('rush', isRush() ? '1' : '0');
 
-        // Project info
+        // All form fields
         var allFields = $$('.wizard input, .wizard select, .wizard textarea');
         allFields.forEach(function (el) {
-            if (!el.name || el.name === 'service_type' || el.name === 'num_systems' || el.name === 'rush' || el.name === 'terms' || el.type === 'file') return;
+            if (!el.name || el.name === 'service_type' || el.name === 'sqft' || el.name === 'rush' || el.name === 'terms' || el.type === 'file') return;
             if (el.type === 'radio' && !el.checked) return;
             if (el.type === 'checkbox') {
                 formData.append(el.name, el.checked ? '1' : '0');
@@ -519,11 +568,13 @@
             });
         });
 
-        // System count and rush changes
-        var numSystems = $('[name="num_systems"]');
+        // Rush toggle
         var rushToggle = $('[name="rush"]');
-        if (numSystems) numSystems.addEventListener('change', updatePrice);
         if (rushToggle) rushToggle.addEventListener('change', updatePrice);
+
+        // Sqft field triggers price recalculation
+        var sqftField = $('[name="sqft"]');
+        if (sqftField) sqftField.addEventListener('input', updatePrice);
 
         // Project type changes conditional fields
         var projectType = $('[name="project_type"]');

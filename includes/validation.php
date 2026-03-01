@@ -34,8 +34,14 @@ function validateFileUpload($file, $maxSize = 10485760) {
         'image/png',
         'image/gif',
         'image/webp',
+        'application/acad',
+        'application/x-acad',
+        'application/x-autocad',
+        'image/x-dwg',
+        'application/dwg',
+        'application/octet-stream', // DWG files often detected as generic binary
     ];
-    $allowedExts = ['pdf', 'jpg', 'jpeg', 'png', 'gif', 'webp'];
+    $allowedExts = ['pdf', 'dwg', 'jpg', 'jpeg', 'png', 'gif', 'webp'];
 
     if ($file['error'] !== UPLOAD_ERR_OK) {
         $errorMessages = [
@@ -55,13 +61,16 @@ function validateFileUpload($file, $maxSize = 10485760) {
 
     $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     if (!in_array($ext, $allowedExts)) {
-        return 'File type not allowed. Please upload PDF, JPG, or PNG files.';
+        return 'File type not allowed. Please upload PDF, DWG, JPG, or PNG files.';
     }
 
-    $finfo = new finfo(FILEINFO_MIME_TYPE);
-    $mimeType = $finfo->file($file['tmp_name']);
-    if (!in_array($mimeType, $allowedTypes)) {
-        return 'File type not allowed.';
+    // DWG files have inconsistent MIME detection; trust extension for DWG
+    if ($ext !== 'dwg') {
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        $mimeType = $finfo->file($file['tmp_name']);
+        if (!in_array($mimeType, $allowedTypes)) {
+            return 'File type not allowed.';
+        }
     }
 
     return true;

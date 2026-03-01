@@ -21,7 +21,7 @@ $input = sanitize($_POST);
 
 // --- 2. Extract fields ---
 $serviceType     = $input['service_type'] ?? '';
-$numSystems      = max(1, min(4, intval($input['num_systems'] ?? 1)));
+$sqft            = max(0, intval($input['sqft'] ?? 0));
 $rush            = !empty($input['rush']);
 $customerName    = $input['customer_name'] ?? '';
 $customerEmail   = $input['customer_email'] ?? '';
@@ -54,8 +54,8 @@ if (!isset($pricingTable[$serviceType])) {
 
 $serviceLabel = $pricingTable[$serviceType]['label'];
 
-// --- 5. Calculate price (server-authoritative) ---
-$priceResult = calculatePrice($serviceType, $numSystems, $rush);
+// --- 5. Calculate price (server-authoritative, sqft-based) ---
+$priceResult = calculatePrice($serviceType, $sqft, $rush);
 $priceCents  = $priceResult['total_cents'];
 
 // --- 6. Commercial: price is 0 (quote required) ---
@@ -66,10 +66,11 @@ if ($serviceType === 'commercial') {
 // --- 7. Build project_data from POST fields ---
 $projectFields = [
     'project_type', 'address_street', 'address_city', 'address_state', 'address_zip',
-    'sqft', 'stories', 'bedrooms', 'bathrooms', 'year_built', 'foundation',
-    'insulation_type', 'attic_rvalue', 'wall_rvalue', 'window_type', 'exterior_type',
-    'orientation', 'garage', 'wall_area', 'ceiling_area', 'window_door_area',
-    'equip_brand', 'equip_model', 'equip_type', 'equip_status',
+    'sqft', 'year_built', 'front_door_faces',
+    'floor_material', 'roof_ceiling_material', 'roofing_type', 'roof_insulation',
+    'wall_material', 'wall_thickness', 'wall_insulation_type', 'wall_insulation',
+    'siding_type', 'glass_u_value', 'glass_shgc', 'exterior_door',
+    'energy_code',
 ];
 
 $projectData = [];
@@ -118,7 +119,7 @@ try {
         $orderNumber,
         'pending',
         $serviceLabel,
-        $numSystems,
+        1, // num_systems kept as 1 for schema compatibility
         $rush ? 1 : 0,
         $priceCents,
         json_encode($projectData),
@@ -185,7 +186,7 @@ try {
         'id'           => $orderId,
         'order_number' => $orderNumber,
         'service_type' => $serviceLabel,
-        'num_systems'  => $numSystems,
+        'sqft'         => $sqft,
         'rush'         => $rush,
         'price_cents'  => $priceCents,
         'project_data' => $projectData,

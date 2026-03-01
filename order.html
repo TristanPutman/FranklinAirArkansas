@@ -107,31 +107,31 @@
 
                         <div class="service-options">
                             <label class="service-option">
-                                <input type="radio" name="service_type" value="load_calc">
+                                <input type="radio" name="service_type" value="manual_j">
                                 <div class="option-header">
-                                    <span class="option-name">Precision Load Calculation</span>
-                                    <span class="option-price">$190</span>
+                                    <span class="option-name">Manual J Load Calculation</span>
+                                    <span class="option-price">$0.15/sqft</span>
                                 </div>
-                                <div class="option-desc">Manual J load calculation for proper equipment sizing. Required for new construction and system replacements.</div>
+                                <div class="option-desc">Manual J load calculation for proper equipment sizing. $350 minimum. Required for new construction and system replacements.</div>
                             </label>
 
                             <label class="service-option">
-                                <input type="radio" name="service_type" value="load_calc_duct">
+                                <input type="radio" name="service_type" value="manual_jd">
                                 <span class="option-popular">Most Popular</span>
                                 <div class="option-header">
-                                    <span class="option-name">Load Calc + Duct Design</span>
-                                    <span class="option-price">$450</span>
+                                    <span class="option-name">Manual J &amp; D</span>
+                                    <span class="option-price">$0.35/sqft</span>
                                 </div>
-                                <div class="option-desc">Manual J load calculation plus Manual D duct design. Complete sizing and airflow solution.</div>
+                                <div class="option-desc">Manual J load calculation plus Manual D duct design. Complete sizing and airflow solution. $350 minimum.</div>
                             </label>
 
                             <label class="service-option">
-                                <input type="radio" name="service_type" value="equipment_verification">
+                                <input type="radio" name="service_type" value="manual_jds">
                                 <div class="option-header">
-                                    <span class="option-name">Equipment Verification</span>
-                                    <span class="option-price">$99</span>
+                                    <span class="option-name">Manual J, D, &amp; S</span>
+                                    <span class="option-price">$0.50/sqft</span>
                                 </div>
-                                <div class="option-desc">Verify that proposed equipment matches the load requirements for your project.</div>
+                                <div class="option-desc">Complete package: Manual J load calc, Manual D duct design, and Manual S equipment selection. $350 minimum.</div>
                             </label>
 
                             <label class="service-option">
@@ -141,15 +141,6 @@
                                     <span class="option-price">$170</span>
                                 </div>
                                 <div class="option-desc">REScheck compliance report for building permits and energy code verification.</div>
-                            </label>
-
-                            <label class="service-option">
-                                <input type="radio" name="service_type" value="complete_package">
-                                <div class="option-header">
-                                    <span class="option-name">Complete Design Package</span>
-                                    <span class="option-price">$549</span>
-                                </div>
-                                <div class="option-desc">Everything included: load calc, duct design, equipment verification, and REScheck. Best value for new construction.</div>
                             </label>
 
                             <label class="service-option">
@@ -164,16 +155,6 @@
 
                         <div class="options-row">
                             <div class="option-group">
-                                <label for="num_systems">Number of Systems</label>
-                                <select name="num_systems" id="num_systems">
-                                    <option value="1">1 system</option>
-                                    <option value="2">2 systems</option>
-                                    <option value="3">3 systems</option>
-                                    <option value="4">4 systems</option>
-                                    <option value="5">5 systems</option>
-                                </select>
-                            </div>
-                            <div class="option-group">
                                 <label class="rush-toggle">
                                     <input type="checkbox" name="rush">
                                     <span>
@@ -187,6 +168,7 @@
                         <div class="price-display">
                             <div class="price-amount" id="priceDisplay">$0</div>
                             <div class="price-breakdown" id="priceBreakdown"></div>
+                            <div class="price-note" id="priceNote">Price calculated based on square footage entered in Step 2</div>
                         </div>
                     </div>
 
@@ -194,6 +176,36 @@
                     <div class="wizard-step" data-step="2">
                         <h2>Project Information</h2>
                         <p class="step-desc">Tell us about the building. This information helps Thomas produce an accurate design report.</p>
+
+                        <div class="field-section">
+                            <h3>Client Information</h3>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customer_name">Client Name <span class="required">*</span></label>
+                                <input type="text" name="customer_name" id="customer_name" placeholder="Your full name" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="customer_email">Email <span class="required">*</span></label>
+                                <input type="email" name="customer_email" id="customer_email" placeholder="you@example.com" autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customer_phone">Phone <span class="required">*</span></label>
+                                <input type="tel" name="customer_phone" id="customer_phone" placeholder="(479) 555-1234" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="customer_company">Company <span class="optional">(optional)</span></label>
+                                <input type="text" name="customer_company" id="customer_company" placeholder="Company name" autocomplete="organization">
+                            </div>
+                        </div>
+
+                        <div class="field-section">
+                            <h3>Property Address</h3>
+                        </div>
 
                         <div class="form-group">
                             <label for="project_type">Project Type <span class="required">*</span></label>
@@ -204,10 +216,6 @@
                                 <option value="addition">Addition / Renovation</option>
                                 <option value="commercial">Commercial</option>
                             </select>
-                        </div>
-
-                        <div class="field-section">
-                            <h3>Property Address</h3>
                         </div>
 
                         <div class="form-group">
@@ -247,155 +255,163 @@
                             <h3>Building Details</h3>
                         </div>
 
-                        <div class="form-row form-row-4">
+                        <div class="form-row">
                             <div class="form-group">
                                 <label for="sqft">Square Footage <span class="required">*</span></label>
                                 <input type="number" name="sqft" id="sqft" placeholder="2000" min="100" max="99999">
                             </div>
                             <div class="form-group">
-                                <label for="stories">Stories <span class="required">*</span></label>
-                                <select name="stories" id="stories">
-                                    <option value="">Select</option>
-                                    <option value="1">1</option>
-                                    <option value="1.5">1.5</option>
-                                    <option value="2">2</option>
-                                    <option value="2.5">2.5</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="bedrooms">Bedrooms <span class="required">*</span></label>
-                                <select name="bedrooms" id="bedrooms">
-                                    <option value="">Select</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6+">6+</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="bathrooms">Bathrooms <span class="required">*</span></label>
-                                <select name="bathrooms" id="bathrooms">
-                                    <option value="">Select</option>
-                                    <option value="1">1</option>
-                                    <option value="1.5">1.5</option>
-                                    <option value="2">2</option>
-                                    <option value="2.5">2.5</option>
-                                    <option value="3">3</option>
-                                    <option value="3.5">3.5</option>
-                                    <option value="4+">4+</option>
+                                <label for="front_door_faces">Front Door Faces <span class="required">*</span></label>
+                                <select name="front_door_faces" id="front_door_faces">
+                                    <option value="">Select direction</option>
+                                    <option value="north">North</option>
+                                    <option value="south">South</option>
+                                    <option value="east">East</option>
+                                    <option value="west">West</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="form-row">
+                        <div class="form-row" id="yearBuiltGroup" style="display:none;">
                             <div class="form-group">
-                                <label for="foundation">Foundation Type <span class="required">*</span></label>
-                                <select name="foundation" id="foundation">
-                                    <option value="">Select foundation</option>
-                                    <option value="slab">Slab on Grade</option>
-                                    <option value="crawlspace">Crawl Space</option>
-                                    <option value="basement">Basement</option>
-                                    <option value="pier">Pier and Beam</option>
-                                    <option value="mixed">Mixed / Combination</option>
-                                </select>
-                            </div>
-                            <div class="form-group" id="yearBuiltGroup" style="display:none;">
                                 <label for="year_built">Year Built <span class="optional">(optional)</span></label>
                                 <input type="number" name="year_built" id="year_built" placeholder="1995" min="1900" max="2030">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Step 3: Additional Details -->
+                    <!-- Step 3: Building Details -->
                     <div class="wizard-step" data-step="3">
-                        <h2>Additional Details</h2>
-                        <p class="step-desc">These details help us produce the most accurate report. Fill in what you can.</p>
+                        <h2>Building Details</h2>
+                        <p class="step-desc">These details help us produce the most accurate report. Fill in what you can &mdash; we can work with partial information.</p>
 
                         <div id="loadCalcFields">
                             <div class="field-section">
-                                <h3>Building Envelope</h3>
-                                <p>Information about insulation, windows, and construction</p>
+                                <h3>Floor</h3>
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="wall_insulation">Wall Insulation <span class="optional">(optional)</span></label>
-                                    <select name="wall_insulation" id="wall_insulation">
-                                        <option value="">Not sure / Unknown</option>
-                                        <option value="r13">R-13 (2x4 walls)</option>
-                                        <option value="r19">R-19 (2x6 walls)</option>
-                                        <option value="r21">R-21 (2x6 high-density)</option>
-                                        <option value="spray_foam">Spray Foam</option>
-                                        <option value="none">None / Uninsulated</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="attic_insulation">Attic Insulation <span class="optional">(optional)</span></label>
-                                    <select name="attic_insulation" id="attic_insulation">
-                                        <option value="">Not sure / Unknown</option>
-                                        <option value="r30">R-30</option>
-                                        <option value="r38">R-38</option>
-                                        <option value="r49">R-49</option>
-                                        <option value="spray_foam">Spray Foam</option>
-                                        <option value="none">None / Uninsulated</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label for="floor_material">Floor Material <span class="optional">(optional)</span></label>
+                                <select name="floor_material" id="floor_material">
+                                    <option value="">Select floor type</option>
+                                    <option value="slab">Slab on Grade</option>
+                                    <option value="enclosed_crawl">Enclosed Crawl Space / Basement</option>
+                                    <option value="open_crawl">Open Crawl Space / Basement</option>
+                                    <option value="basement">Basement</option>
+                                </select>
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="window_type">Window Type <span class="optional">(optional)</span></label>
-                                    <select name="window_type" id="window_type">
-                                        <option value="">Not sure / Unknown</option>
-                                        <option value="single">Single Pane</option>
-                                        <option value="double">Double Pane</option>
-                                        <option value="double_lowe">Double Pane Low-E</option>
-                                        <option value="triple">Triple Pane</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="garage">Garage <span class="optional">(optional)</span></label>
-                                    <select name="garage" id="garage">
-                                        <option value="">Select</option>
-                                        <option value="none">No Garage</option>
-                                        <option value="attached">Attached</option>
-                                        <option value="detached">Detached</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="equipmentFields" style="display:none;">
                             <div class="field-section">
-                                <h3>Equipment Information</h3>
-                                <p>Details about the proposed or existing equipment</p>
+                                <h3>Roof &amp; Ceiling</h3>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="equipment_brand">Equipment Brand <span class="optional">(optional)</span></label>
-                                    <input type="text" name="equipment_brand" id="equipment_brand" placeholder="e.g., Carrier, Trane, Lennox">
+                                    <label for="roof_ceiling_material">Roof/Ceiling Material <span class="optional">(optional)</span></label>
+                                    <select name="roof_ceiling_material" id="roof_ceiling_material">
+                                        <option value="">Select type</option>
+                                        <option value="attic_floor">Under attic with insulation on attic floor</option>
+                                        <option value="roof_deck">Roof deck with insulation under decking</option>
+                                        <option value="foam_encapsulated">Foam encapsulated roof joist</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="equipment_model">Model Number <span class="optional">(optional)</span></label>
-                                    <input type="text" name="equipment_model" id="equipment_model" placeholder="Model number">
+                                    <label for="roofing_type">Roofing Type <span class="optional">(optional)</span></label>
+                                    <select name="roofing_type" id="roofing_type">
+                                        <option value="">Select type</option>
+                                        <option value="dark_metal">Dark Metal</option>
+                                        <option value="light_metal">Light Metal</option>
+                                        <option value="dark_shingles">Dark Shingles</option>
+                                        <option value="light_shingles">Light Shingles</option>
+                                        <option value="tile_slate">Tile / Slate</option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="equipment_tonnage">Proposed Tonnage <span class="optional">(optional)</span></label>
-                                <select name="equipment_tonnage" id="equipment_tonnage">
-                                    <option value="">Not sure</option>
-                                    <option value="1.5">1.5 Ton</option>
-                                    <option value="2">2 Ton</option>
-                                    <option value="2.5">2.5 Ton</option>
-                                    <option value="3">3 Ton</option>
-                                    <option value="3.5">3.5 Ton</option>
-                                    <option value="4">4 Ton</option>
-                                    <option value="5">5 Ton</option>
+                                <label for="roof_insulation">Roof Insulation R-Value <span class="optional">(optional)</span></label>
+                                <input type="number" name="roof_insulation" id="roof_insulation" placeholder="e.g., 38" min="0" max="60" style="max-width:180px;">
+                                <span class="field-hint">Enter R-0 through R-60</span>
+                            </div>
+
+                            <div class="field-section">
+                                <h3>Walls</h3>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="wall_material">Wall Material <span class="optional">(optional)</span></label>
+                                    <select name="wall_material" id="wall_material">
+                                        <option value="">Select type</option>
+                                        <option value="frame">Frame</option>
+                                        <option value="basement">Basement</option>
+                                        <option value="block">Block</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="wall_thickness">Wall Thickness <span class="optional">(optional)</span></label>
+                                    <select name="wall_thickness" id="wall_thickness">
+                                        <option value="">Select thickness</option>
+                                        <option value="4in">4 in</option>
+                                        <option value="6in">6 in</option>
+                                        <option value="8in">8 in</option>
+                                        <option value="10in">10 in</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="wall_insulation_type">Wall Insulation Type <span class="optional">(optional)</span></label>
+                                    <select name="wall_insulation_type" id="wall_insulation_type">
+                                        <option value="">Select type</option>
+                                        <option value="fiberglass">Fiberglass</option>
+                                        <option value="open_cell_foam">Open Cell Foam</option>
+                                        <option value="closed_cell_foam">Closed Cell Foam</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="wall_insulation">Wall Insulation R-Value <span class="optional">(optional)</span></label>
+                                    <input type="number" name="wall_insulation" id="wall_insulation" placeholder="e.g., 13" min="0" max="60" style="max-width:180px;">
+                                    <span class="field-hint">Enter R-0 through R-60</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="siding_type">Siding Type <span class="optional">(optional)</span></label>
+                                <select name="siding_type" id="siding_type">
+                                    <option value="">Select type</option>
+                                    <option value="brick">Brick</option>
+                                    <option value="siding">Siding</option>
+                                </select>
+                            </div>
+
+                            <div class="field-section">
+                                <h3>Windows &amp; Doors</h3>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="glass_u_value">Glass U-Value <span class="optional">(optional)</span></label>
+                                    <input type="number" name="glass_u_value" id="glass_u_value" placeholder="e.g., 0.30" min="0" max="2.0" step="0.01" style="max-width:180px;">
+                                    <span class="field-hint">0 through 2.0</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="glass_shgc">Glass SHGC <span class="optional">(optional)</span></label>
+                                    <input type="number" name="glass_shgc" id="glass_shgc" placeholder="e.g., 0.25" min="0" max="1.0" step="0.01" style="max-width:180px;">
+                                    <span class="field-hint">0 through 1.0</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exterior_door">Exterior Door Type <span class="optional">(optional)</span></label>
+                                <select name="exterior_door" id="exterior_door">
+                                    <option value="">Select type</option>
+                                    <option value="poly_core">Poly Core</option>
+                                    <option value="solid_wood">Solid Wood</option>
+                                    <option value="metal_fiberglass">Metal with Fiberglass Core</option>
+                                    <option value="metal_poly">Metal with Poly Core</option>
                                 </select>
                             </div>
                         </div>
@@ -432,7 +448,7 @@
                     <!-- Step 4: File Upload -->
                     <div class="wizard-step" data-step="4">
                         <h2>Upload Floor Plans</h2>
-                        <p class="step-desc">Upload your floor plans, blueprints, or building drawings. PDF files work best. You can also email them later.</p>
+                        <p class="step-desc">Upload your floor plans, blueprints, or building drawings. PDF and DWG files work best. You can also email them later.</p>
 
                         <div class="file-dropzone" id="fileDropzone">
                             <div class="drop-icon">
@@ -443,8 +459,8 @@
                                 </svg>
                             </div>
                             <div class="drop-text">Drop files here or click to browse</div>
-                            <div class="drop-hint">PDF, JPG, or PNG up to 10MB each (max 5 files)</div>
-                            <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.gif,.webp" multiple style="display:none;">
+                            <div class="drop-hint">PDF, DWG, JPG, or PNG up to 10MB each (max 5 files)</div>
+                            <input type="file" id="fileInput" accept=".pdf,.dwg,.jpg,.jpeg,.png,.gif,.webp" multiple style="display:none;">
                         </div>
 
                         <div class="file-list" id="fileList"></div>
@@ -458,35 +474,9 @@
                     <!-- Step 5: Review & Submit -->
                     <div class="wizard-step" data-step="5">
                         <h2>Review &amp; Submit</h2>
-                        <p class="step-desc">Review your order details, provide your contact information, and submit.</p>
+                        <p class="step-desc">Review your order details and submit.</p>
 
                         <div class="review-summary" id="reviewSummary"></div>
-
-                        <div class="field-section">
-                            <h3>Your Information</h3>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="customer_name">Full Name <span class="required">*</span></label>
-                                <input type="text" name="customer_name" id="customer_name" placeholder="Your full name" autocomplete="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="customer_email">Email <span class="required">*</span></label>
-                                <input type="email" name="customer_email" id="customer_email" placeholder="you@example.com" autocomplete="email">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="customer_phone">Phone <span class="required">*</span></label>
-                                <input type="tel" name="customer_phone" id="customer_phone" placeholder="(479) 555-1234" autocomplete="tel">
-                            </div>
-                            <div class="form-group">
-                                <label for="customer_company">Company <span class="optional">(optional)</span></label>
-                                <input type="text" name="customer_company" id="customer_company" placeholder="Company name" autocomplete="organization">
-                            </div>
-                        </div>
 
                         <div class="terms-check">
                             <input type="checkbox" name="terms" id="terms">
